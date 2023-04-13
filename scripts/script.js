@@ -17,11 +17,11 @@ like.forEach(function(element) {
   element.addEventListener('click', function() {
     let likeIcon = element.querySelector('.icons_like_icon');
     if (element.dataset.like === 'unchecked') {
-      likeIcon.src = '../images/like-fill-icon.svg';  
+      likeIcon.src = 'images/like-fill-icon.svg';  
       element.dataset.like = 'checked'; 
       element.setAttribute('data-likecount', parseInt(element.dataset.likecount) + 1);
     } else {
-      likeIcon.src = '../images/like-empty-icon.svg';  
+      likeIcon.src = 'images/like-empty-icon.svg';  
       element.dataset.like = 'unchecked';  
       if (parseInt(element.dataset.likecount) >= 0) { 
         element.setAttribute('data-likecount', parseInt(element.dataset.likecount) - 1);
