@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="pages/index.css">
+  <title>Mesto Russia</title>
+</head>
+<body class="body">
+  <div class="page">
+    
+    <header class="header">
+      <img class="header__logo" src="images/mesto-logo.svg" alt="Места России">
+    </header>
+    
+    <main class="content">
+      <section class="profile">
+        <div class="profile__user">
+          <img class="profile__avatar" src="images/profile-avatar.png" alt="Аватар Пользователя">
+          <div class="profile__info">
+            <div class="profile__name">
+              <h3 class="profile__names">Жак-Ив Кусто</h3>
+              <button class="button button_edit_profile"><img class="icons icons_edit_icon" src="images/edit-button-icon.svg" alt="Иконка редактирования профиля"></button>
+            </div>
+            <p class="profile__job">UX/UI дизайнер</p>
+          </div>
+        </div>
+        <button class="button button_add_content"><img class="icons icons_add_icon" src="images/button-plus-icon.svg" alt="Иконка добавления контента"></button>
+      </section>
+      <section class="elements" aria-label="Список картинок">
+        <ul class="elements__grid">
+          <li class="elements__element">
+              <img class="elements__image" src="images/places/img-1.jpg" alt="Чебоксары">
+              <div class="elements__info">
+                <h3 class="elements__name">Чебоксары</h3>
+                <button class="button button_like_icon" data-like="unchecked" data-likecount=4><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+              </div>
+          </li>
+          <li class="elements__element">
+            <img class="elements__image" src="images/places/img-2.jpg" alt="Марий Эл, Йошкар-Ола">
+            <div class="elements__info">
+              <h3 class="elements__name">Марий Эл, Йошкар-Ола</h3>
+              <button class="button button_like_icon" data-like="unchecked" data-likecount="0"><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <img class="elements__image" src="images/places/img-3.jpg" alt="Канаш">
+            <div class="elements__info">
+              <h3 class="elements__name">Канаш</h3>
+              <button class="button button_like_icon" data-like="unchecked" data-likecount="0"><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <img class="elements__image" src="images/places/img-4.jpg" alt="Сурский мост">
+            <div class="elements__info">
+              <h3 class="elements__name">Сурский мост</h3>
+              <button class="button button_like_icon" data-like="unchecked" data-likecount="0"><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <img class="elements__image" src="images/places/img-5.jpg" alt="Кокшамары">
+            <div class="elements__info">
+              <h3 class="elements__name">Кокшамары</h3>
+              <button class="button button_like_icon" data-like="unchecked" data-likecount="0"><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+
+    <section class="popup">
+      <form class="popup__form">
+        <h3 class="popup__headline">Редактировать профиль</h3>
+        <input class="input input_name_field" placeholder="Имя">
+        <input class="input input_job_field" placeholder="Профессия">
+        <button class="button button_add_confirm">Сохранить</button>
+        <button class="button button_close_popup"><img class="icons icons_close_icon" src="images/close-icon.svg" alt="Иконка закрытия попапа"></button>
+      </form>      
+    </section>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

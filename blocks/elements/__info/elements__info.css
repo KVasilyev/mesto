@@ -1,0 +1,9 @@
+.elements__info {
+  display: grid;
+  grid-template-columns: 1fr 22px;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}

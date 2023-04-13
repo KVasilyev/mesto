@@ -1,0 +1,19 @@
+.button_close_popup {
+  border: 0;
+  padding: 0;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+@media screen and (max-width: 560px) {
+    .button_close_popup {
+        top: -56px;
+        right: 0;
+      }
+}
+@media screen and (max-width: 425px) {
+    .button_close_popup {
+        top: -36px;
+        right: 0;
+      }
+}

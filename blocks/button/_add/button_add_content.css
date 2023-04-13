@@ -1,0 +1,11 @@
+.button_add_content {
+  border: 2px solid #fff;
+  height: 50px;
+  padding-left: 62px;
+  padding-right: 62px;
+}
+@media screen and (max-width: 768px) {
+    .button_add_content {
+        width: 100%;
+      }
+}

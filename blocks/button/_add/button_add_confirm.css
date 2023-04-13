@@ -1,0 +1,19 @@
+.button_add_confirm {
+  border: 0;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 16px 0px;
+  margin-top: 40px;
+}
+.button_add_confirm:hover {
+  opacity: 0.8;
+}
+@media screen and (max-width: 425px) {
+    .button_add_confirm {
+        font-size: 14px;
+        padding: 14px 0px
+      }
+}
