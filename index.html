@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="pages/index.css">
-  <title>Mesto Russia</title>
+  <title lang="en">Mesto Russia</title>
 </head>
 <body class="body">
   <div class="page">
@@ -14,54 +14,73 @@
     </header>
     
     <main class="content">
-      <section class="profile">
+      <section class="profile" aria-label="Профиль пользователя">
         <div class="profile__user">
           <img class="profile__avatar" src="images/profile-avatar.png" alt="Аватар Пользователя">
           <div class="profile__info">
             <div class="profile__name">
-              <h3 class="profile__names">Жак-Ив Кусто</h3>
-              <button class="button button_edit_profile"><img class="icons icons_edit_icon" src="images/edit-button-icon.svg" alt="Иконка редактирования профиля"></button>
+              <h1 class="profile__names">Жак-Ив Костюша</h1>
+              <button type="button" class="profile__button-edit"></button>
             </div>
-            <p class="profile__job">UX/UI дизайнер</p>
+            <p class="profile__job">UX/UI дизайнер UX/UI дизайнер UX/UI дизайнер UX/UI дизайнер UX/UI дизайнер UX/UI дизайнер UX/UI дизайнер UX/UI дизайнер UX/UI дизайнер UX/UI дизайнер</p>
           </div>
         </div>
-        <button class="button button_add_content"><img class="icons icons_add_icon" src="images/button-plus-icon.svg" alt="Иконка добавления контента"></button>
+        <button type="button" class="profile__button-add"></button>
       </section>
       <section class="elements" aria-label="Список картинок">
         <ul class="elements__grid">
           <li class="elements__element">
+            <div class="elements__image-container">
               <img class="elements__image" src="images/places/img-1.jpg" alt="Чебоксары">
-              <div class="elements__info">
-                <h3 class="elements__name">Чебоксары</h3>
-                <button class="button button_like_icon" data-like="unchecked" data-likecount=4><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
-              </div>
-          </li>
-          <li class="elements__element">
-            <img class="elements__image" src="images/places/img-2.jpg" alt="Марий Эл, Йошкар-Ола">
+            </div>
             <div class="elements__info">
-              <h3 class="elements__name">Марий Эл, Йошкар-Ола</h3>
-              <button class="button button_like_icon" data-like="unchecked" data-likecount="0"><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+              <h2 class="elements__name">Чебоксары</h2>
+              <button type="button" class="elements__button-like"></button>
             </div>
           </li>
           <li class="elements__element">
-            <img class="elements__image" src="images/places/img-3.jpg" alt="Канаш">
+            <div class="elements__image-container">
+              <img class="elements__image" src="images/places/img-2.jpg" alt="Йошкар-Ола">
+            </div>
             <div class="elements__info">
-              <h3 class="elements__name">Канаш</h3>
-              <button class="button button_like_icon" data-like="unchecked" data-likecount="0"><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+              <h2 class="elements__name">Йошкар-Ола</h2>
+              <button type="button" class="elements__button-like"></button>
             </div>
           </li>
           <li class="elements__element">
-            <img class="elements__image" src="images/places/img-4.jpg" alt="Сурский мост">
+            <div class="elements__image-container">
+              <img class="elements__image" src="images/places/img-3.jpg" alt="Канаш">
+            </div>
             <div class="elements__info">
-              <h3 class="elements__name">Сурский мост</h3>
-              <button class="button button_like_icon" data-like="unchecked" data-likecount="0"><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+              <h2 class="elements__name">Канаш</h2>
+              <button type="button" class="elements__button-like"></button>
             </div>
           </li>
           <li class="elements__element">
-            <img class="elements__image" src="images/places/img-5.jpg" alt="Кокшамары">
+            <div class="elements__image-container">
+              <img class="elements__image" src="images/places/img-4.jpg" alt="Сурский Мост">
+            </div>
             <div class="elements__info">
-              <h3 class="elements__name">Кокшамары</h3>
-              <button class="button button_like_icon" data-like="unchecked" data-likecount="0"><img class="icons icons_like_icon" src="images/like-empty-icon.svg" alt="Иконка лайка"></button>
+              <h2 class="elements__name">Сурский Мост</h2>
+              <button type="button" class="elements__button-like"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <div class="elements__image-container">
+              <img class="elements__image" src="images/places/img-5.jpg" alt="Кокшамары">
+            </div>
+            <div class="elements__info">
+              <h2 class="elements__name">Кокшамары</h2>
+              <button type="button" class="elements__button-like"></button>
+            </div>
+          </li>
+          <li class="elements__element">
+            <div class="elements__image-container">
+              <img class="elements__image" src="images/places/img-6.jpg" alt="Цивильск">
+            </div>
+            <div class="elements__info">
+              <h2 class="elements__name">Цивильск</h2>
+              <button type="button" class="elements__button-like"></button>
             </div>
           </li>
         </ul>
@@ -73,13 +92,17 @@
     </footer>
 
     <section class="popup">
-      <form class="popup__form">
-        <h3 class="popup__headline">Редактировать профиль</h3>
-        <input class="input input_name_field" placeholder="Имя">
-        <input class="input input_job_field" placeholder="Профессия">
-        <button class="button button_add_confirm">Сохранить</button>
-        <button class="button button_close_popup"><img class="icons icons_close_icon" src="images/close-icon.svg" alt="Иконка закрытия попапа"></button>
-      </form>      
+
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <form name="edit-profile" class="popup__edit-profile" aria-label="Редактировать профиль">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input class="popup__input editProfileName" placeholder="Имя"> 
+          <input class="popup__input editProfileJob" placeholder="Работа">
+          <button type="submit" class="popup__button-submit">Сохранить</button> 
+        </form>
+      </div>
+      
     </section>
   </div>
 

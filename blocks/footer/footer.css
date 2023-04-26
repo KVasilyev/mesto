@@ -1,14 +1,17 @@
 .footer {
-  padding-left: 40px;
-  padding-right: 40px;
   margin: 0 auto;
   max-width: 880px;
   padding-bottom: 60px;
   z-index: 1;
 }
+@media screen and (max-width: 960px) {
+    .footer {
+        max-width: calc(100% - 80px);
+      }
+}
 @media screen and (max-width: 425px) {
     .footer {
-        padding-left: 19px;
-        padding-right: 19px;
+        max-width: calc(100% - 38px);
+        padding-bottom: 36px;
       }
 }
