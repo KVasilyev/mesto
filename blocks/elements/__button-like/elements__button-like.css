@@ -1,6 +1,6 @@
 .elements__button-like {
   background: none;
-  background-image: url(/images/like-empty-icon.svg);
+  background-image: url(../../../images/like-empty-icon.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   border: 0;
