@@ -1,10 +1,16 @@
 .elements__image {
-  position: absolute;
   max-width: 100%;
-  min-height: 100%;
-  vertical-align: middle;
+  min-height: calc(100% - 80px);
+  aspect-ratio: 1/1;
+  display: block;
   border: 0;
   border-radius: 10px 10px 0px 0px;
   object-fit: cover;
   object-position: 50% 50%;
+}
+
+@media screen and (max-width: 620px) {
+  .elements__image {
+    min-height: calc(100vw - 80px);
+  }
 }

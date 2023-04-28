@@ -4,24 +4,19 @@ let closePopup = document.querySelector('.popup__button-close');
 let popups = document.querySelector('.popup')
 let editProfile = document.querySelector('.popup__edit-profile');
 
-let editProfileName = document.querySelector('.editProfileName');
+let editProfileName = document.querySelector('.input_type_name');
 let profileNameInPage = document.querySelector('.profile__names');
 
-let editProfileJob = document.querySelector('.editProfileJob');
+let editProfileJob = document.querySelector('.input_type_job');
 let profileJobInPage = document.querySelector('.profile__job');
 
 let profileChangeSubmit = document.querySelector('.popup__button-submit');
 
 
-function openPopup(evt) {
-  popups.classList.add('popup_opened');
-  let targetPopup = evt.target.classList;
-  switch (String(targetPopup)) {
-    case "profile__button-edit":
-      editProfile.classList.add('form_opened');
-      editProfileName.value = profileNameInPage.textContent;
-      editProfileJob.value = profileJobInPage.textContent;    
-    }       
+function openPopup() {
+  popups.classList.add('popup_opened');  
+  editProfileName.value = profileNameInPage.textContent; 
+  editProfileJob.value = profileJobInPage.textContent; 
 }
 
 function closeAllPopup(evt) {
@@ -32,7 +27,7 @@ function changeNameAndJob(evt) {
   evt.preventDefault();
   profileNameInPage.textContent = editProfileName.value;
   profileJobInPage.textContent = editProfileJob.value;
-  closeAllPopup(evt);  
+  closeAllPopup();  
 }
 
 editProfile.addEventListener('submit', changeNameAndJob);

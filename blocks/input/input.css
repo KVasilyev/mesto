@@ -1,4 +1,4 @@
-.popup__input {
+.input {
   font-size: 14px;
   line-height: 16px;
   border: 0;
@@ -7,6 +7,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 12px;
 }
-.popup__input:last-child {
+.input:last-child {
   margin-bottom: 0;
 }
