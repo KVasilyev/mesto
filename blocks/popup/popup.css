@@ -6,8 +6,11 @@
   z-index: 5;
   top: 0;
   left: 0;
-  display: none;
+  display: flex;
+  visibility: hidden;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
+  opacity: 0;
+  transition: 0.3s;
 }

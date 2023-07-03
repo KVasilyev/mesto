@@ -29,48 +29,7 @@
       </section>
       <section class="elements" aria-label="Список картинок">
         <ul class="elements__grid">
-          <li class="elements__element">
-              <img class="elements__image" src="images/places/img-1.jpg" alt="Чебоксары">
-            <div class="elements__info">
-              <h2 class="elements__name">Чебоксары</h2>
-              <button type="button" class="elements__button-like"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-              <img class="elements__image" src="images/places/img-2.jpg" alt="Йошкар-Ола">
-            <div class="elements__info">
-              <h2 class="elements__name">Йошкар-Ола</h2>
-              <button type="button" class="elements__button-like"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-              <img class="elements__image" src="images/places/img-3.jpg" alt="Канаш">
-            <div class="elements__info">
-              <h2 class="elements__name">Канаш</h2>
-              <button type="button" class="elements__button-like"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-              <img class="elements__image" src="images/places/img-4.jpg" alt="Сурский Мост">
-            <div class="elements__info">
-              <h2 class="elements__name">Сурский Мост</h2>
-              <button type="button" class="elements__button-like"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-              <img class="elements__image" src="images/places/img-5.jpg" alt="Кокшамары">
-            <div class="elements__info">
-              <h2 class="elements__name">Кокшамары</h2>
-              <button type="button" class="elements__button-like"></button>
-            </div>
-          </li>
-          <li class="elements__element">
-              <img class="elements__image" src="images/places/img-6.jpg" alt="Цивильск">
-            <div class="elements__info">
-              <h2 class="elements__name">Цивильск</h2>
-              <button type="button" class="elements__button-like"></button>
-            </div>
-          </li>
+          
         </ul>
       </section>
     </main>
@@ -79,8 +38,7 @@
       <p class="footer__copyright" lang="en">© 2020 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
-
+    <section class="popup popup_type_edit">
       <div class="popup__container">
         <button type="button" class="popup__button-close"></button>
         <form name="edit-profile" class="popup__edit-profile" aria-label="Редактировать профиль">
@@ -89,11 +47,46 @@
           <input class="input input_type_job" placeholder="Работа">
           <button type="submit" class="popup__button-submit">Сохранить</button> 
         </form>
-      </div>
-      
+      </div>      
     </section>
+
+    <section class="popup popup_type_add">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close"></button>
+        <form name="add-content" class="popup__add-content" aria-label="Добавить фотографию">
+          <h2 class="popup__title">Новое место</h2>
+          <input class="input input_type_description" placeholder="Название"> 
+          <input class="input input_type_link" placeholder="Ссылка на картинку">
+          <button type="submit" class="popup__button-submit">Создать</button> 
+        </form>
+      </div>      
+    </section>
+
+    <section class="popup popup_type_image">
+      <div class="popup__container popup_image">
+        <button type="button" class="popup__button-close"></button>
+        <figure class="popup__image-place">
+          <img class="popup__image" src="#" alt="">
+          <figcaption class="popup__image-caption"></figcaption>
+        </figure>
+      </div>      
+    </section>
+
   </div>
 
+  <template id="card-template">
+    <li class="elements__element">
+      <img class="elements__image" src="#" alt="">
+      <div class="elements__info">
+        <h2 class="elements__name"></h2>
+        <button type="button" class="elements__button-like"></button>
+      </div>
+      <button type="button" class="elements__button-delete"></button>
+    </li>
+  </template>
+
   <script src="scripts/script.js"></script>
+
+
 </body>
 </html>
