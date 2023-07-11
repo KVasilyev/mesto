@@ -20,7 +20,7 @@
           <div class="profile__info">
             <div class="profile__name">
               <h1 class="profile__names">Жак-Ив Константин</h1>
-              <button type="button" class="profile__button-edit"></button>
+              <button type="button" class="profile__button-edit" aria-label="Редактировать"></button>
             </div>
             <p class="profile__job">UX/UI дизайнер</p>
           </div>
@@ -40,10 +40,10 @@
 
     <section class="popup popup_type_edit">
       <div class="popup__container">
-        <button type="button" class="popup__button-close"></button>
+        <button type="button" class="popup__button-close" aria-label="Закрыть"></button>
         <form name="edit-profile" class="popup__edit-profile" aria-label="Редактировать профиль">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="input input_type_name" placeholder="Имя"> 
+          <input class="input input_type_name" placeholder="Имя" required> 
           <input class="input input_type_job" placeholder="Работа">
           <button type="submit" class="popup__button-submit">Сохранить</button> 
         </form>
@@ -52,11 +52,11 @@
 
     <section class="popup popup_type_add">
       <div class="popup__container">
-        <button type="button" class="popup__button-close"></button>
+        <button type="button" class="popup__button-close" aria-label="Закрыть"></button>
         <form name="add-content" class="popup__add-content" aria-label="Добавить фотографию">
           <h2 class="popup__title">Новое место</h2>
           <input class="input input_type_description" placeholder="Название"> 
-          <input class="input input_type_link" placeholder="Ссылка на картинку">
+          <input class="input input_type_link" placeholder="Ссылка на картинку" type="url">
           <button type="submit" class="popup__button-submit">Создать</button> 
         </form>
       </div>      
@@ -64,14 +64,13 @@
 
     <section class="popup popup_type_image">
       <div class="popup__container popup__container_image">
-        <button type="button" class="popup__button-close"></button>
+        <button type="button" class="popup__button-close" aria-label="Закрыть"></button>
         <figure class="popup__image-place">
           <img class="popup__image" src="#" alt="">
           <figcaption class="popup__image-caption"></figcaption>
         </figure>
       </div>      
     </section>
-
   </div>
 
   <template id="card-template">
@@ -85,7 +84,9 @@
     </li>
   </template>
 
-  <script src="scripts/script.js"></script>
+
+<script defer src="scripts/constants.js"></script>
+<script defer src="scripts/script.js"></script>
 
 
 </body>
