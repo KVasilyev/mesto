@@ -41,11 +41,13 @@
     <section class="popup popup_type_edit">
       <div class="popup__container">
         <button type="button" class="popup__button-close" aria-label="Закрыть"></button>
-        <form name="edit-profile" class="popup__edit-profile" aria-label="Редактировать профиль">
+        <form name="edit-profile" class="popup__form popup__form popup__edit-profile" aria-label="Редактировать профиль" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="input input_type_name" placeholder="Имя" required> 
-          <input class="input input_type_job" placeholder="Работа">
-          <button type="submit" class="popup__button-submit">Сохранить</button> 
+          <input class="popup__input input input_type_name" placeholder="Имя" type="text" id="name-input" minlength="2" maxlength="40" required>
+          <span class="popup__input-error name-input-error"></span>
+          <input class="popup__input input input_type_job" placeholder="Работа" type="text" id="work-input" minlength="2" maxlength="200" required>
+          <span class="popup__input-error work-input-error"></span>
+          <button type="submit" class="popup__submit popup__button-submit">Сохранить</button> 
         </form>
       </div>      
     </section>
@@ -53,11 +55,13 @@
     <section class="popup popup_type_add">
       <div class="popup__container">
         <button type="button" class="popup__button-close" aria-label="Закрыть"></button>
-        <form name="add-content" class="popup__add-content" aria-label="Добавить фотографию">
+        <form name="add-content" class="popup__form popup__add-content" aria-label="Добавить фотографию" novalidate>
           <h2 class="popup__title">Новое место</h2>
-          <input class="input input_type_description" placeholder="Название"> 
-          <input class="input input_type_link" placeholder="Ссылка на картинку" type="url">
-          <button type="submit" class="popup__button-submit">Создать</button> 
+          <input class="popup__input input input_type_description" placeholder="Название" type="text" id="description-input" minlength="2" maxlength="30" required>
+          <span class="popup__input-error description-input-error"></span>
+          <input class="popup__input input input_type_link" placeholder="Ссылка на картинку" type="url" id="url-input" required>
+          <span class="popup__input-error url-input-error"></span>
+          <button type="submit" class="popup__submit popup__button-submit">Создать</button> 
         </form>
       </div>      
     </section>
@@ -86,8 +90,8 @@
 
 
 <script defer src="scripts/constants.js"></script>
+<script defer src="scripts/validation.js"></script>
 <script defer src="scripts/script.js"></script>
-
 
 </body>
 </html>

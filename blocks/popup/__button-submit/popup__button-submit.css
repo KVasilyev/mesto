@@ -1,5 +1,5 @@
 .popup__button-submit {
-  background-color: #000;
+  background-color: rgba(0,0,0,1);
   color: #fff;
   border: 0;
   min-width: 100%;
@@ -8,6 +8,11 @@
   height: 50px;
   margin-top: 32px;
   border-radius: 2px;
+}
+.popup__button-submit:hover {
+  background-color: rgba(0,0,0,0.8);
+  cursor: pointer;
+  transition: 0.3s;
 }
 @media screen and (max-width: 560px) {
     .popup__button-submit {

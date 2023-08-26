@@ -13,7 +13,7 @@ initialCards.forEach(function(obj) {
 function createCard(name, link) {
   const cardElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
 
-  let elementImage = cardElement.querySelector('.elements__image');
+  const elementImage = cardElement.querySelector('.elements__image');
   
   elementImage.src = link;
   elementImage.alt = name;
@@ -141,8 +141,33 @@ popupAddForm.addEventListener('submit', function(evt) {
 /* Функция открытия/закрытия попапов */
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', escPopupClose);
 }
 
-function closePopup(popup) {
+function closePopup(popup) {  
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', escPopupClose);
+}
+
+
+/* ESC закрытия попапов */
+function escPopupClose(evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+  if(evt.keyCode == 27) {
+    closePopup(openedPopup);
+  }
+};
+
+
+/* Overlay закрытия попапов */
+const allPopups = document.querySelectorAll('.popup');
+
+allPopups.forEach(function(obj) {
+  obj.addEventListener('click', overlayPopupClose);
+});
+
+function overlayPopupClose(evt) {
+  if(evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  }
 }
