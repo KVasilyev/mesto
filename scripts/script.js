@@ -124,24 +124,26 @@ closeAddPopupButton.addEventListener('click', function() {
 
 /* Добавление карточек ----- */
 const popupAddForm = document.querySelector('.popup__add-content');
+const pictureName = document.querySelector('.input_type_description');
+const pictureLink = document.querySelector('.input_type_link'); 
 
-popupAddForm.addEventListener('submit', function(evt) {  
-  const pictureName = document.querySelector('.input_type_description').value;
-  const pictureLink = document.querySelector('.input_type_link').value;
-
+popupAddForm.addEventListener('submit', function(evt) {   
+  
   evt.preventDefault();
-  addNewContent(pictureName, pictureLink);
+  addNewContent(pictureName.value, pictureLink.value);
   closePopup(addPopup);  
 
   popupAddForm.reset();
 });
 
 
-
 /* Функция открытия/закрытия попапов */
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', escPopupClose);
+  const buttonElement = popup.querySelector('.popup__submit');
+  
+  enableSubmitButton(buttonElement, setupObj);
 }
 
 function closePopup(popup) {  
@@ -152,8 +154,8 @@ function closePopup(popup) {
 
 /* ESC закрытия попапов */
 function escPopupClose(evt) {
-  const openedPopup = document.querySelector('.popup_opened');
   if(evt.keyCode == 27) {
+    const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
   }
 };

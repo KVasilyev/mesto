@@ -35,7 +35,7 @@ function setEventListener(formElement, setup) {
             checkInputValidity(formElement, inputElement, setup);
             toggleButtonState(inputList, buttonElement, setup);
         });
-        toggleButtonState(inputList, buttonElement, setup);
+        toggleButtonState(inputList, buttonElement, setup);       
     });
 }
   
@@ -59,23 +59,34 @@ function hasInvalidInput (inputList) {
 
 
 // Дизейблим или нет конпку
+function enableSubmitButton(buttonElement, setup) {
+    buttonElement.classList.add(setup.inactiveButtonClass);
+    buttonElement.disabled = true;
+}
+
+function disableSubmitButton(buttonElement, setup) {
+    buttonElement.classList.remove(setup.inactiveButtonClass);
+    buttonElement.disabled = false;
+}
+
 function toggleButtonState (inputList, buttonElement, setup) {
     if(hasInvalidInput(inputList)) {
-        buttonElement.classList.add(setup.inactiveButtonClass);
-        buttonElement.disabled = true;
+        enableSubmitButton(buttonElement, setup);
     } else {
-        buttonElement.classList.remove(setup.inactiveButtonClass);
-        buttonElement.disabled = false;
+        disableSubmitButton(buttonElement, setup);
     }
 }
 
 
 // Включаем все
-enableValidation( {
+
+const setupObj = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__submit',
     inactiveButtonClass: 'popup__submit_inactive',
     inputErrorClass: 'popup__input_invalid',
     errorClass: 'popup__input-error_active'
-});
+};
+
+enableValidation(setupObj);
