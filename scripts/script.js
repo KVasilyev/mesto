@@ -142,8 +142,6 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', escPopupClose);
   const buttonElement = popup.querySelector('.popup__submit');
-  
-  enableSubmitButton(buttonElement, setupObj);
 }
 
 function closePopup(popup) {  

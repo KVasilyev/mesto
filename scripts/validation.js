@@ -35,8 +35,13 @@ function setEventListener(formElement, setup) {
             checkInputValidity(formElement, inputElement, setup);
             toggleButtonState(inputList, buttonElement, setup);
         });
-        toggleButtonState(inputList, buttonElement, setup);       
+        toggleButtonState(inputList, buttonElement, setup);      
     });
+
+    formElement.addEventListener("reset", function(evt) {
+        disableSubmitButton(buttonElement, setupObj);
+    });
+    
 }
   
 function enableValidation (setup) {
@@ -59,21 +64,21 @@ function hasInvalidInput (inputList) {
 
 
 // Дизейблим или нет конпку
-function enableSubmitButton(buttonElement, setup) {
+function disableSubmitButton(buttonElement, setup) {
     buttonElement.classList.add(setup.inactiveButtonClass);
     buttonElement.disabled = true;
 }
 
-function disableSubmitButton(buttonElement, setup) {
+function enableSubmitButton(buttonElement, setup) {
     buttonElement.classList.remove(setup.inactiveButtonClass);
     buttonElement.disabled = false;
 }
 
 function toggleButtonState (inputList, buttonElement, setup) {
     if(hasInvalidInput(inputList)) {
-        enableSubmitButton(buttonElement, setup);
-    } else {
         disableSubmitButton(buttonElement, setup);
+    } else {
+        enableSubmitButton(buttonElement, setup);
     }
 }
 
