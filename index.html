@@ -41,7 +41,7 @@
     <section class="popup popup_type_edit">
       <div class="popup__container">
         <button type="button" class="popup__button-close" aria-label="Закрыть"></button>
-        <form name="edit-profile" class="popup__form popup__form popup__edit-profile" aria-label="Редактировать профиль" novalidate>
+        <form name="edit-profile" id="edit-profile" class="popup__form popup__form popup__edit-profile" aria-label="Редактировать профиль" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
           <input class="popup__input input input_type_name" placeholder="Имя" type="text" id="name-input" minlength="2" maxlength="40" required>
           <span class="popup__input-error name-input-error"></span>
@@ -55,7 +55,7 @@
     <section class="popup popup_type_add">
       <div class="popup__container">
         <button type="button" class="popup__button-close" aria-label="Закрыть"></button>
-        <form name="add-content" class="popup__form popup__add-content" aria-label="Добавить фотографию" novalidate>
+        <form name="add-content" id="add-content" class="popup__form popup__add-content" aria-label="Добавить фотографию" novalidate>
           <h2 class="popup__title">Новое место</h2>
           <input class="popup__input input input_type_description" placeholder="Название" type="text" id="description-input" minlength="2" maxlength="30" required>
           <span class="popup__input-error description-input-error"></span>
@@ -90,8 +90,6 @@
 
 
 <script defer src="scripts/constants.js"></script>
-<script defer src="scripts/validation.js"></script>
-<script defer src="scripts/script.js"></script>
-
+<script type="module" src="scripts/script.js"></script>
 </body>
 </html>
