@@ -1,10 +1,9 @@
-import * as utils from './utils.js';
-
 export class Card {
-    constructor(name, link, templateSelector){
+    constructor(name, link, templateSelector, openImagePopup){
         this._name = name;
         this._link = link; 
         this._templateSelector = templateSelector;
+        this._openImagePopup = openImagePopup;
     }
 
     _getTemplate() {
@@ -15,7 +14,7 @@ export class Card {
         .cloneNode(true);
         
         return hCard;
-        }
+    }
     
     generateCard() {
         this._element = this._getTemplate();
@@ -26,11 +25,15 @@ export class Card {
         this._element.querySelector('.elements__name').textContent = this._name;   
 
         return this._element;
-        }
-
+    }
+    
+    createCard() {
+        this._element = this.generateCard();
+        return this._element;
+    }
     _handleOpenPopup() {
         this._element.querySelector('.elements__image').addEventListener('click', () => {    
-            utils.openImagePopup(this._link, this._name)
+            this._openImagePopup(this._link, this._name)
         });
     }
 
