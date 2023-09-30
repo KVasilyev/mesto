@@ -23,7 +23,7 @@ export class FormValidator {
     }
 
     _checkInputValidity(inputElement) {
-        if (inputElement.validity.valid == false) {
+        if (inputElement.validity.valid === false) {
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
             this._hideInputError(inputElement);

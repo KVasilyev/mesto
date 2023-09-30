@@ -1,6 +1,5 @@
 node_modules/
 package-lock.json
-package.json
 pages/style.css
 pages/style-old.css
 scripts/script copy.js
