@@ -1,9 +1,15 @@
 export default class Card {
-    constructor({ name, link }, templateSelector, { handleCardClick }) {
+    constructor({ name, link, _id, owner, likes=[] }, getMyInfo, templateSelector, { handleCardClick }, { handleDeletePopup }, likeState) {
         this._name = name;
         this._link = link; 
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
+        this._handleDeletePopup = handleDeletePopup;
+        this.__id = _id;
+        this._owner = owner;
+        this._getMyInfo = getMyInfo;
+        this._likes = likes;
+        this._likeState = likeState;
     }
 
     _getTemplate() {
@@ -18,9 +24,11 @@ export default class Card {
     generateCard() {
         this._element = this._getTemplate();
         this._setEventListeners();
+        this._element.id = this.__id;
         this._element.querySelector('.elements__image').src = this._link;
         this._element.querySelector('.elements__image').alt = this._name;
-        this._element.querySelector('.elements__name').textContent = this._name;   
+        this._element.querySelector('.elements__name').textContent = this._name;
+        this._element.querySelector('.elements__like').textContent = this._likes.length;
         return this._element;
     }
     
@@ -35,21 +43,30 @@ export default class Card {
     }
 
     _handleDeleteCard() {
-        this._element.querySelector('.elements__button-delete').addEventListener('click', () => {
-            this._element.remove();
-        });
+        if (this._owner._id === this._getMyInfo._id){
+            this._element.querySelector('.elements__button-delete').addEventListener('click', () => {
+                this._handleDeletePopup(this.__id, this._element);
+            })
+        } else {
+            this._element.querySelector('.elements__button-delete').remove();
+        }
+        
     }
 
-    _handleLikeListener() {
+    _handleLikeListener() {     
+        if(this._likes.some(res => this._getMyInfo)){
+            this._element.querySelector('.elements__button-like').classList.add('elements__button-like_active');            
+        }
         this._element.querySelector('.elements__button-like').addEventListener('click', (event) => {
-            event.target.classList.toggle('elements__button-like_active');
+            event.target.classList.toggle('elements__button-like_active'); 
+            this._likeState(this.__id);
         });
     }
     
     _setEventListeners() {
         this._handleOpenPopup();
-        this._handleDeleteCard();
         this._handleLikeListener();
+        this._handleDeleteCard();
     }
 }
 
