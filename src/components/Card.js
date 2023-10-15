@@ -64,10 +64,10 @@ export default class Card {
     handleWithLikeButton() {
         this._likeButton.addEventListener('click', () => {
             if(this._likeButton.classList.contains('elements__button-like_active')){
-                this.unlike();
+                // this.unlike();
                 this._unsetLike(this._data);
             } else {
-                this.like();
+                // this.like();
                 this._setLike(this._data);
             }
         })

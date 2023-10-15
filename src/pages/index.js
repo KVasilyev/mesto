@@ -58,21 +58,23 @@ function addItem(item) {
     // ———— Лайки/Дизлайки
     async function setLike(data) {
         try {
-            const res = await api.setLike(data._id)
-            newCard.counter(res)
+            const res = await api.setLike(data._id);
+            newCard.counter(res);
+            newCard.like();
         }
         catch(err) {
-            console.log(err)
+            console.log(err);
         }
     }
 
     async function unsetLike(data) {
         try {
-            const res = await api.unsetLike(data._id)  
-            newCard.counter(res)
+            const res = await api.unsetLike(data._id);
+            newCard.counter(res);
+            newCard.unlike();
         }
         catch(err) {
-            console.log(err)
+            console.log(err);
         }
     }
 
@@ -113,8 +115,6 @@ function handleCardClick(link, name){
 
 
 // ———— Информация о пользователе
-
-
 const userInfo = new UserInfo({ 
     nameSelector: '.profile__names', 
     jobSelector: '.profile__job',
@@ -129,13 +129,15 @@ popupChangeUserInfo.setEventListeners();
 
 openPopupChangeUserInfo.addEventListener('click', () => {
     popupChangeUserInfo.open();
+    const user = userInfo.getUserInfo();
+    popupChangeUserInfo.setInputValues(user);
 })
 
 async function setNewUserInfo(data) {
     popupChangeUserInfo.setButtonChange('Сохранение...');
     try {      
-        await api.setMyInfo(data); 
-        userInfo.setUserInfo(await api.getMyInfo());
+        const change = await api.setMyInfo(data); 
+        userInfo.setUserInfo(change);
         popupChangeUserInfo.close();
     }
     catch(err) {
@@ -157,8 +159,8 @@ openPopupChangeUserAvatar.addEventListener('click', () => {
 async function setNewUserAvatar(data) {
     popupChangeUserAvatar.setButtonChange('Сохранение...');
     try {      
-        await api.setMyAvatar(data); 
-        userInfo.setUserInfo(await api.getMyInfo())
+        const change = await api.setMyAvatar(data); 
+        userInfo.setUserInfo(change);
         popupChangeUserAvatar.close();
     }
     catch(err) {
