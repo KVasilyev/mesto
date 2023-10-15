@@ -3,49 +3,56 @@ export default class Api {
         this._baseUrl = options.baseUrl;
         this._headers = options.headers;
     }
+    _checkResponse(result) {
+        if (result.ok) {
+            return result.json();
+        }
+        // если ошибка, отклоняем промис
+        return Promise.reject(`Ошибка: ${result.status}`);
+    }
+
     // Получаем информацию обо мне
     async getMyInfo() {
         return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
         })
-        .then((result) => {
-            if (result.ok) {
-                return result.json();
-            }
-            // если ошибка, отклоняем промис
-            return Promise.reject(`Ошибка: ${result.status}`);
-            })
-        .catch((err) => {
-            console.log(`Ошибка: ${err}`);
-        })
+        .then(this._checkResponse)
     }  
+    
     // Устанавливаем информацию о себе на сервер
-    async setMyInfo({name, about}) {
-        fetch(`${this._baseUrl}/users/me`, {
+    async setMyInfo(data) {
+        return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers
             ,
             body: JSON.stringify({
-                name: `${name}`,
-                about:`${about}`
+                name: data.name,
+                about: data.about
             })
-        }); 
+        })
+        .then(this._checkResponse) 
     }
+
+    //Меняем аватар
+    async setMyAvatar(data) {
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
+            method: 'PATCH',
+            headers: this._headers
+            ,
+            body: JSON.stringify({
+                avatar: data.avatar,
+            })
+        })
+        .then(this._checkResponse)
+    }
+
+
     // Получаем все карточки с сервера
     async getCards() {
         return fetch(`${this._baseUrl}/cards`, {
             headers: this._headers
         })
-        .then((result) => {
-            if (result.ok) {
-                return result.json();
-            }
-            // если ошибка, отклоняем промис
-            return Promise.reject(`Ошибка: ${result.status}`);
-            })
-        .catch((err) => {
-            console.log(`Ошибка: ${err}`);
-        })
+        .then(this._checkResponse)
     }
     // Загружаем карточку на сервер
     async addCards({name, link}) {
@@ -57,16 +64,7 @@ export default class Api {
                 link: link
             })
         })
-        .then((result) => {
-            if (result.ok) {
-                 return result.json();
-            }
-            // если ошибка, отклоняем промис
-            return Promise.reject(`Ошибка: ${result.status}`);
-            })
-        .catch((err) => {
-            console.log(`Ошибка: ${err}`);
-        })
+        .then(this._checkResponse)
     }
     // Удаление карточки с сервера
     async deleteCards(id) {
@@ -74,30 +72,23 @@ export default class Api {
             method: 'DELETE',
             headers: this._headers,
         })
+        .then(this._checkResponse)
     }
-    //Меняем аватар
-    async setMyAvatar(avatar) {
-        fetch(`${this._baseUrl}/users/me/avatar`, {
-            method: 'PATCH',
-            headers: this._headers
-            ,
-            body: JSON.stringify({
-                avatar: `${avatar}`,
-            })
-        }); 
-    }
+
     //Ставим лайк
     async setLike(card) {
-        fetch(`${this._baseUrl}/cards/${card}/likes`, {
+        return fetch(`${this._baseUrl}/cards/${card}/likes`, {
             method: 'PUT',
             headers: this._headers
-        }); 
+        })
+        .then(this._checkResponse)
     }
     //Удаляем лайк
     async unsetLike(card) {
-        fetch(`${this._baseUrl}/cards/${card}/likes`, {
+        return fetch(`${this._baseUrl}/cards/${card}/likes`, {
             method: 'DELETE',
             headers: this._headers
-        }); 
+        })
+        .then(this._checkResponse)
     }  
 }
